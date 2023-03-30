@@ -6,10 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
-enum EfficiancyClasses {
-    A, B, C, D, E, F, G
-}
-
 @Setter
 @Getter
 @NoArgsConstructor
@@ -21,7 +17,7 @@ public class Fridge {
     private double capacity;
     private boolean isDefrosting;
     private static Fridge instance = new Fridge();
-    private EfficiancyClasses energyEfficiancyClasses;
+    private String energyEfficiancyClasses;
 
     public void turnOnDefrosting() {
         this.isDefrosting = true;
@@ -42,11 +38,11 @@ public class Fridge {
     public static void main(String[] args) {
         Fridge[] fridges = new Fridge[4];
         fridges[0] = new Fridge();
-        fridges[1] = new Fridge("Sony", "XP200", 100.0, true, EfficiancyClasses.A);
+        fridges[1] = new Fridge("Sony", "XP200", 100.0, true, "A");
         fridges[2] = Fridge.getInstance();
         fridges[3] = Fridge.getInstance();
-        for (int i = 0; i < fridges.length; i++) {
-            System.out.println(fridges[i].model);
+        for (Fridge fridge : fridges) {
+            System.out.println(fridge);
         }
     }
 }
