@@ -1,6 +1,10 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import ua.lviv.iot.algo.part1.lab1.models.*;
+import ua.lviv.iot.algo.part1.lab1.models.Freezer;
+import ua.lviv.iot.algo.part1.lab1.models.Fridge;
+import ua.lviv.iot.algo.part1.lab1.models.FridgeCamera;
+import ua.lviv.iot.algo.part1.lab1.models.MedicalFridge;
+import ua.lviv.iot.algo.part1.lab1.models.WineFridge;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,15 +2,11 @@ package ua.lviv.iot.algo.part1.lab1.models;
 
 import lombok.Setter;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import lombok.ToString;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public abstract class Fridge {
     private String brand;
     private String model;
