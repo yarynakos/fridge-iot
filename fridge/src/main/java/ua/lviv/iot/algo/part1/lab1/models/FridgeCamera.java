@@ -3,12 +3,10 @@ package ua.lviv.iot.algo.part1.lab1.models;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 @Setter
 @Getter
 @ToString
-@SuperBuilder
 public class FridgeCamera extends Fridge {
     private int numberOfEntries;
     private String typeOfTape;
