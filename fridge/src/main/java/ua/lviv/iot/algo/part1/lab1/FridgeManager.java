@@ -18,6 +18,7 @@ public class FridgeManager {
                 .filter((element) -> element.getCapacity() >= capacity)
                 .collect(Collectors.toList());
     }
+
     public List<Fridge> findAllFridgesIsDefrosing() {
         return this.fridges.stream()
                 .filter((element) -> element.isDefrosting())
@@ -26,14 +27,14 @@ public class FridgeManager {
 
     public static void main(String[] args) {
         FridgeManager fridgeManager = new FridgeManager();
-        FridgeCamera fridge1 = new FridgeCamera(4, "електрична", 6.0, 150.0);
-        FridgeCamera fridge2 = new FridgeCamera(3, "механічна", 7.0, 200.0);
-        WineFridge fridge3 = new WineFridge(20, 1.0);
-        WineFridge fridge4 = new WineFridge(15, 0.75);
-        Freezer fridge5 = new Freezer(-30.0, 3);
-        Freezer fridge6 = new Freezer(-10.0, 5);
-        MedicalFridge fridge7 = new MedicalFridge("samsung","adc2",25.0,true,"C","скляні", "вертикальний", 1);
-        MedicalFridge fridge8 = new MedicalFridge("глухі", "горизонтальний", 3);
+        FridgeCamera fridge1 = new FridgeCamera("cold", "abc1", 50.0, false, "B", 4, "електрична", 6.0, 150.0, 1.5);
+        FridgeCamera fridge2 = new FridgeCamera("frozen", "abc6", 45.0, true, "D", 3, "механічна", 7.0, 200.0, 1.5);
+        WineFridge fridge3 = new WineFridge("Tefcold", "abc4", 15.0, true, "A", 20, 1.0);
+        WineFridge fridge4 = new WineFridge("Klarstein", "adc", 20.0, true, "B", 15, 0.75);
+        Freezer fridge5 = new Freezer("Tefal", "acb1", 32.5, false, "C", -30.0, 3);
+        Freezer fridge6 = new Freezer("Samsung", "acb2", 29.7, true, "D", -10.0, 5);
+        MedicalFridge fridge7 = new MedicalFridge("inetmed", "adc2", 25.0, true, "C", "скляні", "вертикальний", 1);
+        MedicalFridge fridge8 = new MedicalFridge("Meling", "adc3", 40.0, false, "A", "глухі", "горизонтальний", 3);
         fridgeManager.addFridge(fridge1);
         fridgeManager.addFridge(fridge2);
         fridgeManager.addFridge(fridge3);
@@ -53,7 +54,7 @@ public class FridgeManager {
         for (Fridge fridge : filteredFridges) {
             System.out.println(fridge);
         }
-        
+
         for (Fridge fridge : filteredFridges2) {
             System.out.println(fridge);
         }

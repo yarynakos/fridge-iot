@@ -5,12 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@SuperBuilder
 public abstract class Fridge {
     private String brand;
     private String model;
@@ -34,5 +36,6 @@ public abstract class Fridge {
     public static Fridge getInstance() {
         return instance;
     }
+
     public abstract double getMaxUsableCapacity();
 }

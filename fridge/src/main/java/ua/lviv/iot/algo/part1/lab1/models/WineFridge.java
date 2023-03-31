@@ -1,19 +1,24 @@
 package ua.lviv.iot.algo.part1.lab1.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Setter
 @Getter
 @ToString
-@NoArgsConstructor
-@AllArgsConstructor
+@SuperBuilder
 public class WineFridge extends Fridge {
     private int maxNumbersOfBottle;
     private double maxCapacityOFBottle;
+
+    public WineFridge(String brand, String model, double capacity, boolean isDefrosing, String energyEfficiancyClasses,
+                      int maxNumbersOfBottle, double maxCapacityOFBottle) {
+        super(brand, model, capacity, isDefrosing, energyEfficiancyClasses);
+        this.maxNumbersOfBottle = maxNumbersOfBottle;
+        this.maxCapacityOFBottle = maxCapacityOFBottle;
+    }
 
     @Override
     public double getMaxUsableCapacity() {
