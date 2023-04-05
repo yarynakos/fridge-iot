@@ -1,22 +1,18 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.models;
 
 import lombok.Setter;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import lombok.ToString;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class Fridge {
+public abstract class Fridge {
     private String brand;
     private String model;
     private double capacity;
     private boolean isDefrosting;
-    private static Fridge instance = new Fridge();
+    private static Fridge instance;
     private String energyEfficiancyClasses;
 
     public void turnOnDefrosting() {
@@ -35,14 +31,5 @@ public class Fridge {
         return instance;
     }
 
-    public static void main(String[] args) {
-        Fridge[] fridges = new Fridge[4];
-        fridges[0] = new Fridge();
-        fridges[1] = new Fridge("Sony", "XP200", 100.0, true, "A");
-        fridges[2] = Fridge.getInstance();
-        fridges[3] = Fridge.getInstance();
-        for (Fridge fridge : fridges) {
-            System.out.println(fridge);
-        }
-    }
+    public abstract double getMaxUsableCapacity();
 }
