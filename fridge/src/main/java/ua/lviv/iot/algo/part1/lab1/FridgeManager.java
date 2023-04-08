@@ -1,5 +1,7 @@
 package ua.lviv.iot.algo.part1.lab1;
 
+import lombok.Getter;
+import lombok.Setter;
 import ua.lviv.iot.algo.part1.lab1.models.Freezer;
 import ua.lviv.iot.algo.part1.lab1.models.Fridge;
 import ua.lviv.iot.algo.part1.lab1.models.FridgeCamera;
@@ -10,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
+@Setter
 public class FridgeManager {
     private List<Fridge> fridges = new ArrayList<>();
 
