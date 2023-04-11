@@ -12,8 +12,9 @@ public class MedicalFridge extends Fridge {
     private String typeOfFridge;
     private int numberOfDoors;
 
-    public MedicalFridge(String brand, String model, double capasity, boolean isDefrosing, String energyEfficiancyClasses,
-                         String typeOfDoors, String typeOfFridge, int numberOfDoors) {
+    public MedicalFridge(final String brand, final String model, final double capasity, final boolean isDefrosing,
+                         final String energyEfficiancyClasses, final String typeOfDoors, final String typeOfFridge,
+                         final int numberOfDoors) {
         super(brand, model, capasity, isDefrosing, energyEfficiancyClasses);
         this.typeOfDoors = typeOfDoors;
         this.typeOfFridge = typeOfFridge;

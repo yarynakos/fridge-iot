@@ -1,5 +1,7 @@
 package ua.lviv.iot.algo.part1.lab1;
 
+import lombok.Getter;
+import lombok.Setter;
 import ua.lviv.iot.algo.part1.lab1.models.Freezer;
 import ua.lviv.iot.algo.part1.lab1.models.Fridge;
 import ua.lviv.iot.algo.part1.lab1.models.FridgeCamera;
@@ -10,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
+@Setter
 public class FridgeManager {
     private List<Fridge> fridges = new ArrayList<>();
 
@@ -31,8 +35,8 @@ public class FridgeManager {
 
     public static void main(String[] args) {
         FridgeManager fridgeManager = new FridgeManager();
-        FridgeCamera fridge1 = new FridgeCamera("cold", "abc1", 50.0, false, "B", 4, "електрична", 6.0, 150.0, 1.5);
-        FridgeCamera fridge2 = new FridgeCamera("frozen", "abc6", 45.0, true, "D", 3, "механічна", 7.0, 200.0, 1.5);
+        FridgeCamera fridge1 = new FridgeCamera("cold", "abc1", 50.0, false, "B", 4, "електрична", 6.0, 150.0);
+        FridgeCamera fridge2 = new FridgeCamera("frozen", "abc6", 45.0, true, "D", 3, "механічна", 7.0, 200.0);
         WineFridge fridge3 = new WineFridge("Tefcold", "abc4", 15.0, true, "A", 20, 1.0);
         WineFridge fridge4 = new WineFridge("Klarstein", "adc", 20.0, true, "B", 15, 0.75);
         Freezer fridge5 = new Freezer("Tefal", "acb1", 32.5, false, "C", -30.0, 3);

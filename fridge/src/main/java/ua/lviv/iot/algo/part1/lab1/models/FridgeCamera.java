@@ -14,8 +14,9 @@ public class FridgeCamera extends Fridge {
     private double maxWeight;
     public final double VOLUME_PER_KILOGRAM = 1.5;
 
-    public FridgeCamera(String brand, String model, double capacity, boolean isDefrosing, String energyEfficiancyClasses,
-                        int numberOfEntries, String typeOfTape, double speedOfTape, double maxWeight, double VOLUME_PER_KILOGRAM) {
+    public FridgeCamera(final String brand, final String model, final double capacity, final boolean isDefrosing,
+                        final String energyEfficiancyClasses, final int numberOfEntries, final String typeOfTape,
+                        final double speedOfTape, final double maxWeight) {
         super(brand, model, capacity, isDefrosing, energyEfficiancyClasses);
         this.numberOfEntries = numberOfEntries;
         this.typeOfTape = typeOfTape;
