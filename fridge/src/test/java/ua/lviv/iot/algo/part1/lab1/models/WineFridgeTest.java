@@ -1,15 +1,14 @@
 package ua.lviv.iot.algo.part1.lab1.models;
 
-import junit.framework.TestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import static junit.framework.TestCase.assertEquals;
+class WineFridgeTest {
 
-public class WineFridgeTest {
     @Test
-    public void getMaxUsableCapacityTest(){
+    void getMaxUsableCapacity() {
         WineFridge wineFridge = new WineFridge("Tefcold", "abc4", 15.0, true, "A", 20, 1.0);
-        assertEquals(300.0, wineFridge.getMaxUsableCapacity());
+        double result = wineFridge.getMaxUsableCapacity();
+        Assertions.assertEquals(300.0, result);
     }
-
 }

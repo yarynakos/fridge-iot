@@ -1,13 +1,16 @@
 package ua.lviv.iot.algo.part1.lab1.models;
 
-import org.junit.Test;
-import static junit.framework.TestCase.assertEquals;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-public class MedicalFridgeTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class MedicalFridgeTest {
+
     @Test
-    public void getMaxUsableCapacityTest() {
-        MedicalFridge fridge = new MedicalFridge("inetmed", "adc2", 25.0, true, "C", "скляні", "вертикальний", 1);
-        assertEquals(25.0, fridge.getMaxUsableCapacity());
+    void getMaxUsableCapacity() {
+        MedicalFridge medicalFridge = new MedicalFridge("inetmed", "adc2", 25.0, true, "C", "скляні", "вертикальний", 1);
+        double result = medicalFridge.getMaxUsableCapacity();
+        Assertions.assertEquals(25.0, result);
     }
-
 }

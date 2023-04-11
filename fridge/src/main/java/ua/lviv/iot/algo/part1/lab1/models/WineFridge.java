@@ -11,8 +11,9 @@ public class WineFridge extends Fridge {
     private int maxNumbersOfBottle;
     private double maxCapacityOFBottle;
 
-    public WineFridge(String brand, String model, double capacity, boolean isDefrosing, String energyEfficiancyClasses,
-                      int maxNumbersOfBottle, double maxCapacityOFBottle) {
+    public WineFridge(final String brand, final String model, final double capacity, final boolean isDefrosing,
+                      final String energyEfficiancyClasses, final int maxNumbersOfBottle,
+                      final double maxCapacityOFBottle) {
         super(brand, model, capacity, isDefrosing, energyEfficiancyClasses);
         this.maxNumbersOfBottle = maxNumbersOfBottle;
         this.maxCapacityOFBottle = maxCapacityOFBottle;

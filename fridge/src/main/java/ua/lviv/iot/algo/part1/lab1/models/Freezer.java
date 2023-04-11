@@ -11,8 +11,8 @@ public class Freezer extends Fridge {
     private double minTemperature;
     private int numberOfBoxes;
 
-    public Freezer(String brand, String model, double capacity, boolean isDefrosing, String energyEfficiancyClasses,
-                   double minTemperature, int numberOfBoxes) {
+    public Freezer(final String brand, final String model, final double capacity, final boolean isDefrosing,
+                   final String energyEfficiancyClasses, final double minTemperature, final int numberOfBoxes) {
         super(brand, model, capacity, isDefrosing, energyEfficiancyClasses);
         this.minTemperature = minTemperature;
         this.numberOfBoxes = numberOfBoxes;
