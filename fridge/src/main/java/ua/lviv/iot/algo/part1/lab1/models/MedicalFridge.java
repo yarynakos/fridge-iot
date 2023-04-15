@@ -25,4 +25,12 @@ public class MedicalFridge extends Fridge {
     public double getMaxUsableCapacity() {
         return this.getCapacity() * this.numberOfDoors;
     }
+
+    public String getHeaders() {
+        return super.getHeaders() + "typeOfDoors, typeOfFridge, numberOfDoors";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + ", " + typeOfDoors + "," + typeOfFridge + ", " + numberOfDoors;
+    }
 }

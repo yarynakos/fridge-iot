@@ -4,6 +4,9 @@ import lombok.Setter;
 import lombok.Getter;
 import lombok.AllArgsConstructor;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -32,4 +35,13 @@ public abstract class Fridge {
     }
 
     public abstract double getMaxUsableCapacity();
+
+    public String getHeaders() {
+        return "brand, model, capacity, isDefrosting, instance, energyEfficiancyClasses, ";
+    }
+
+    public String toCSV() {
+        return brand + ", " + model + ", " + capacity + ", " + isDefrosting + ", " + instance + ", "
+                + energyEfficiancyClasses;
+    }
 }

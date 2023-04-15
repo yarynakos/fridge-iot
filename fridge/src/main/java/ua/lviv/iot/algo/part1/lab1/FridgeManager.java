@@ -2,15 +2,22 @@ package ua.lviv.iot.algo.part1.lab1;
 
 import lombok.Getter;
 import lombok.Setter;
+import ua.lviv.iot.algo.part1.lab1.managers.FridgeWriter;
+import ua.lviv.iot.algo.part1.lab1.managers.implementations.FridgeWriterImpl;
 import ua.lviv.iot.algo.part1.lab1.models.Freezer;
 import ua.lviv.iot.algo.part1.lab1.models.Fridge;
 import ua.lviv.iot.algo.part1.lab1.models.FridgeCamera;
 import ua.lviv.iot.algo.part1.lab1.models.MedicalFridge;
 import ua.lviv.iot.algo.part1.lab1.models.WineFridge;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.List;
+
+//import com.opencsv.CSVWriter;
 
 @Getter
 @Setter
@@ -51,6 +58,9 @@ public class FridgeManager {
         fridgeManager.addFridge(fridge6);
         fridgeManager.addFridge(fridge7);
         fridgeManager.addFridge(fridge8);
+
+        FridgeWriter writer = new FridgeWriterImpl();
+        writer.writeToFile(fridgeManager.getFridges());
 
         for (Fridge fridge : fridgeManager.fridges) {
             System.out.println(fridge);
