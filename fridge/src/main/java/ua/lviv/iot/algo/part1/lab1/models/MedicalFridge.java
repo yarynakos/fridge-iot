@@ -27,7 +27,7 @@ public class MedicalFridge extends Fridge {
     }
 
     public String getHeaders() {
-        return super.getHeaders() + "typeOfDoors, typeOfFridge, numberOfDoors";
+        return String.format("%s%s%s%s", super.getHeaders(), "typeOfDoors, ", "typeOfFridge, ", "numberOfDoors");
     }
 
     public String toCSV() {

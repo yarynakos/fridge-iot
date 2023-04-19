@@ -4,9 +4,6 @@ import lombok.Setter;
 import lombok.Getter;
 import lombok.AllArgsConstructor;
 
-import java.io.FileWriter;
-import java.io.IOException;
-
 @Setter
 @Getter
 @AllArgsConstructor

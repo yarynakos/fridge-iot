@@ -9,15 +9,12 @@ import ua.lviv.iot.algo.part1.lab1.models.Fridge;
 import ua.lviv.iot.algo.part1.lab1.models.FridgeCamera;
 import ua.lviv.iot.algo.part1.lab1.models.MedicalFridge;
 import ua.lviv.iot.algo.part1.lab1.models.WineFridge;
-import java.io.FileWriter;
+
 import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.List;
-
-//import com.opencsv.CSVWriter;
 
 @Getter
 @Setter
@@ -40,7 +37,7 @@ public class FridgeManager {
                 .collect(Collectors.toList());
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         FridgeManager fridgeManager = new FridgeManager();
         FridgeCamera fridge1 = new FridgeCamera("cold", "abc1", 50.0, false, "B", 4, "електрична", 6.0, 150.0);
         FridgeCamera fridge2 = new FridgeCamera("frozen", "abc6", 45.0, true, "D", 3, "механічна", 7.0, 200.0);
@@ -58,7 +55,6 @@ public class FridgeManager {
         fridgeManager.addFridge(fridge6);
         fridgeManager.addFridge(fridge7);
         fridgeManager.addFridge(fridge8);
-
         FridgeWriter writer = new FridgeWriterImpl();
         writer.writeToFile(fridgeManager.getFridges());
 
