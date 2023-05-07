@@ -1,6 +1,6 @@
-package ua.lviv.iot.algo.part1.lab1.managers.implementations;
+package ua.lviv.iot.algo.part1.lab1.writers.implementations;
 
-import ua.lviv.iot.algo.part1.lab1.managers.FridgeWriter;
+import ua.lviv.iot.algo.part1.lab1.writers.FridgeWriter;
 import ua.lviv.iot.algo.part1.lab1.models.Fridge;
 
 import java.io.File;
@@ -15,7 +15,7 @@ public class FridgeWriterImpl implements FridgeWriter {
             try (FileWriter writer = new FileWriter("src\\main\\java\\ua\\lviv\\iot\\algo\\part1\\lab1\\resources\\fridges.csv")) {
                 List<String> listOfClassNames = new ArrayList<>();
                 listOfClassNames.add(fridges.get(0).getClass().getSimpleName());
-                writer.write(fridges.get(1).getHeaders());
+                writer.write(fridges.get(0).getHeaders());
                 writer.write("\n");
                 fridges.stream()
                         .forEach(fridge -> {

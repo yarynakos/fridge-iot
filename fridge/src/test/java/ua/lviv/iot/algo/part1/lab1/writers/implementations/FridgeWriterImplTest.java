@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1.managers.implementations;
+package ua.lviv.iot.algo.part1.lab1.writers.implementations;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,6 +7,7 @@ import ua.lviv.iot.algo.part1.lab1.models.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,17 +33,14 @@ class FridgeWriterImplTest {
     }
 
     @Test
-    void writeToFile() {
+    void writeToFile() throws IOException {
         String readerExPath = "src\\test\\java\\ua\\lviv\\iot\\algo\\part1\\lab1\\resources\\expected.csv";
         String readerResPath = "src\\main\\java\\ua\\lviv\\iot\\algo\\part1\\lab1\\resources\\result.csv";
         fridgeWriter.writeToFile(this.fridges);
         try (BufferedReader readerEx = new BufferedReader(new FileReader(readerExPath));
             BufferedReader readerRes = new BufferedReader(new FileReader(readerResPath))) {
             assertNotEquals(readerRes.readLine(), null);
-            assertNotEquals(readerEx.readLine(), null);
             assertEquals(readerEx.readLine(), readerRes.readLine());
-        } catch (Exception e) {
-            new File("src\\main\\java\\ua\\lviv\\iot\\algo\\part1\\lab1\\resources\\fridges.csv");
         }
     }
 }
