@@ -41,7 +41,8 @@ public class WineFridgeService {
         newEntity.setMaxCapacityOFBottle(entity.getMaxCapacityOFBottle());
         return this.map.replace(id, newEntity);
     }
-    public void deleteFridge(Integer id){
+
+    public void deleteFridge(Integer id) {
         this.map.remove(id);
     }
 }
