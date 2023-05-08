@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@SpringBootApplication
 public class FridgeManager {
     private List<Fridge> fridges = new ArrayList<>();
 
@@ -26,9 +25,5 @@ public class FridgeManager {
         return this.fridges.stream()
                 .filter((element) -> element.isDefrosting())
                 .collect(Collectors.toList());
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(FridgeManager.class, args);
     }
 }

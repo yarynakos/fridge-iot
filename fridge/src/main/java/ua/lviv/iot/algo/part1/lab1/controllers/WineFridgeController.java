@@ -1,5 +1,6 @@
 package ua.lviv.iot.algo.part1.lab1.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,28 +11,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ua.lviv.iot.algo.part1.lab1.models.WineFridge;
-import ua.lviv.iot.algo.part1.lab1.services.WineFridgeService;
+import ua.lviv.iot.algo.part1.lab1.services.*;
 
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/fridges")
+@RequestMapping("/fridge")
 public class WineFridgeController {
+
     private final WineFridgeService wineFridgeService;
 
-    public  WineFridgeController(WineFridgeService wineFridgeService) {
-        this.wineFridgeService = wineFridgeService;
+    @Autowired
+    public WineFridgeController(WineFridgeService wineFridge) {
+        wineFridgeService = wineFridge;
     }
 
     @GetMapping
     public ResponseEntity<Collection<WineFridge>> getAllFridges() {
-        return ResponseEntity.ok(this.wineFridgeService.getAllFridges());
+        return ResponseEntity.ok(wineFridgeService.getAllFridges());
     }
 
-    @GetMapping("/:id")
+    @GetMapping("/{id}")
     public ResponseEntity<WineFridge> getFridgeById(@PathVariable("id") Integer id) {
-        WineFridge entity = this.wineFridgeService.getFridgeById(id);
-        if (entity == null){
+        WineFridge entity = wineFridgeService.getFridgeById(id);
+        if (entity == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(entity);
@@ -39,25 +42,25 @@ public class WineFridgeController {
 
     @PostMapping
     public ResponseEntity<WineFridge> addFridge(@RequestBody WineFridge entity) {
-        return ResponseEntity.ok( this.wineFridgeService.addFridge(entity));
+        return ResponseEntity.ok(wineFridgeService.addFridge(entity));
     }
 
-    @PutMapping("/:id")
+    @PutMapping("/{id}")
     public ResponseEntity<WineFridge> editFridge(@PathVariable Integer id, @RequestBody WineFridge entity) {
-        WineFridge entity1 = this.wineFridgeService.editFridge(id, entity);
-        if (entity1 == null){
+        WineFridge entity1 = wineFridgeService.editFridge(id, entity);
+        if (entity1 == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(entity1);
     }
 
-    @DeleteMapping("/:id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteFridge(@PathVariable Integer id) {
-        WineFridge entity1 = this.wineFridgeService.getFridgeById(id);
-        if (entity1 == null){
+        WineFridge entity1 = wineFridgeService.getFridgeById(id);
+        if (entity1 == null) {
             return ResponseEntity.notFound().build();
         }
-        this.wineFridgeService.deleteFridge(id);
+        wineFridgeService.deleteFridge(id);
         return ResponseEntity.ok("fridge with id: " + id);
     }
 }

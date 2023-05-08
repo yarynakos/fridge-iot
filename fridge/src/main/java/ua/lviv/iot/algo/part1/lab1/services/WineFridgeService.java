@@ -12,26 +12,30 @@ import java.util.Map;
 @Service
 @Scope("singleton")
 public class WineFridgeService {
-    private final Map<Integer, WineFridge> map = new HashMap<>();
-    private Integer nextAvailable = 1;
+    private final Map<Integer, WineFridge> fridgeMap = new HashMap<>();
+
+    {
+        fridgeMap.put(1, new WineFridge("sas", "sasa", 4.5, true, "ada", 45, 4, 1));
+    }
+
+    private Integer nextAvailableId = 1;
 
     public Collection<WineFridge> getAllFridges() {
-        return this.map.values();
+        return this.fridgeMap.values();
     }
 
     public WineFridge getFridgeById(Integer id) {
-        return this.map.get(id);
+        return this.fridgeMap.get(id);
     }
 
     public WineFridge addFridge(WineFridge entity) {
-        entity.setId(this.nextAvailable);
-        this.map.put(this.nextAvailable, entity);
-        this.nextAvailable++;
-        return this.map.get(this.nextAvailable - 1);
+        this.fridgeMap.put(this.nextAvailableId++, entity);
+        this.fridgeMap.put(entity.getId(), entity);
+        return entity;
     }
 
     public WineFridge editFridge(Integer id, WineFridge entity) {
-        WineFridge newEntity = this.map.get(id);
+        WineFridge newEntity = this.fridgeMap.get(id);
         newEntity.setBrand(entity.getBrand());
         newEntity.setModel(entity.getModel());
         newEntity.setCapacity(entity.getCapacity());
@@ -39,10 +43,10 @@ public class WineFridgeService {
         newEntity.setEnergyEfficiancyClasses(entity.getEnergyEfficiancyClasses());
         newEntity.setMaxNumbersOfBottle(entity.getMaxNumbersOfBottle());
         newEntity.setMaxCapacityOFBottle(entity.getMaxCapacityOFBottle());
-        return this.map.replace(id, newEntity);
+        return this.fridgeMap.replace(id, newEntity);
     }
 
     public void deleteFridge(Integer id) {
-        this.map.remove(id);
+        this.fridgeMap.remove(id);
     }
 }

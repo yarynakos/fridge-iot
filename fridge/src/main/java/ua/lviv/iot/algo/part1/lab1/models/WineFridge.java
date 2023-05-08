@@ -1,27 +1,28 @@
 package ua.lviv.iot.algo.part1.lab1.models;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.stereotype.Component;
 
 @Setter
 @Getter
-@Component
 @ToString
+
 public class WineFridge extends Fridge {
     private int maxNumbersOfBottle;
     private double maxCapacityOFBottle;
     private Integer id;
 
-    public WineFridge(Integer id, String brand, String model, double capacity, boolean isDefrosing,
-                      String energyEfficiancyClasses, int maxNumbersOfBottle,
-                      double maxCapacityOFBottle) {
-        super(brand, model, capacity, isDefrosing, energyEfficiancyClasses);
+    public WineFridge(String brand, String model, double capacity, boolean isDefrosting
+            , String energyEfficiancyClasses, int maxNumbersOfBottle, double maxCapacityOFBottle, Integer id) {
+        super(brand, model, capacity, isDefrosting, energyEfficiancyClasses);
+        this.id = 0;
         this.maxNumbersOfBottle = maxNumbersOfBottle;
         this.maxCapacityOFBottle = maxCapacityOFBottle;
-        this.id = 1;
     }
+
 
     @Override
     public double getMaxUsableCapacity() {

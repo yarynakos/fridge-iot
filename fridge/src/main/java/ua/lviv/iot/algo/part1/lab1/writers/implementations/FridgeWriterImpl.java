@@ -9,10 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FridgeWriterImpl implements FridgeWriter {
+    private static final String fileName = "\"src\\\\main\\\\java\\\\ua\\\\lviv\\\\iot\\\\algo\\\\part1\\\\lab1\\\\resources\\\\fridges.csv\"";
+
     @Override
     public void writeToFile(List<Fridge> fridges) {
-        if (fridges.size() != 0){
-            try (FileWriter writer = new FileWriter("src\\main\\java\\ua\\lviv\\iot\\algo\\part1\\lab1\\resources\\fridges.csv")) {
+
+        if (fridges.isEmpty()) {
+            try (FileWriter writer = new FileWriter(fileName)) {
                 List<String> listOfClassNames = new ArrayList<>();
                 listOfClassNames.add(fridges.get(0).getClass().getSimpleName());
                 writer.write(fridges.get(0).getHeaders());
@@ -32,7 +35,6 @@ public class FridgeWriterImpl implements FridgeWriter {
                             }
                         });
             } catch (Exception e) {
-                new File("src\\main\\java\\ua\\lviv\\iot\\algo\\part1\\lab1\\resources\\fridges.csv");
             }
         }
     }
