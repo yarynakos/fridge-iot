@@ -38,7 +38,7 @@ public abstract class Fridge {
     }
 
     public String toCSV() {
-        return  brand + ", " + model + ", " + capacity + ", " + isDefrosting + ", " + instance + ", "
+        return brand + ", " + model + ", " + capacity + ", " + isDefrosting + ", " + instance + ", "
                 + energyEfficiancyClasses;
     }
 }

@@ -47,17 +47,17 @@ public class WineFridgeController {
 
     @PutMapping("/{id}")
     public ResponseEntity<WineFridge> editFridge(@PathVariable Integer id, @RequestBody WineFridge entity) {
-        WineFridge entity1 = wineFridgeService.editFridge(id, entity);
-        if (entity1 == null) {
+        WineFridge foundEntity = wineFridgeService.editFridge(id, entity);
+        if (foundEntity == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(entity1);
+        return ResponseEntity.ok(foundEntity);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteFridge(@PathVariable Integer id) {
-        WineFridge entity1 = wineFridgeService.getFridgeById(id);
-        if (entity1 == null) {
+        WineFridge fridgeById = wineFridgeService.getFridgeById(id);
+        if (fridgeById == null) {
             return ResponseEntity.notFound().build();
         }
         wineFridgeService.deleteFridge(id);
