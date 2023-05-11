@@ -1,0 +1,12 @@
+brand, model, capacity, isDefrosting, instance, energyEfficiancyClasses, numberOfEntries, typeOfTape, speedOfTape, maxWeight, VOLUME_PER_KILOGRAM
+cold, abc1, 50.0, false, null, B, 4, електрична, 6.0, 150.0, 1.5
+frozen, abc6, 45.0, true, null, D, 3, механічна, 7.0, 200.0, 1.5
+brand, model, capacity, isDefrosting, instance, energyEfficiancyClasses, maxNumbersOfBottle, maxCapacityOFBottle
+Tefcold, abc4, 15.0, true, null, A, 20, 1.0
+Klarstein, adc, 20.0, true, null, B, 15, 0.75
+brand, model, capacity, isDefrosting, instance, energyEfficiancyClasses, minTemperature, numberOfBoxes
+Tefal, acb1, 32.5, false, null, C, -30.0, 3
+Samsung, acb2, 29.7, true, null, D, -10.0, 5
+brand, model, capacity, isDefrosting, instance, energyEfficiancyClasses, typeOfDoors, typeOfFridge, numberOfDoors
+inetmed, adc2, 25.0, true, null, C, скляні,вертикальний, 1
+Meling, adc3, 40.0, false, null, A, глухі,горизонтальний, 3

@@ -22,4 +22,12 @@ public class Freezer extends Fridge {
     public double getMaxUsableCapacity() {
         return this.getCapacity() * this.numberOfBoxes;
     }
+
+    public String getHeaders() {
+        return String.format("%s%s%s", super.getHeaders(), "minTemperature, ", "numberOfBoxes");
+    }
+
+    public String toCSV() {
+        return super.toCSV() + ", " + minTemperature + ", " + numberOfBoxes;
+    }
 }

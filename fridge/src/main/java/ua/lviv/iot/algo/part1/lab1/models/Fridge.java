@@ -32,4 +32,13 @@ public abstract class Fridge {
     }
 
     public abstract double getMaxUsableCapacity();
+
+    public String getHeaders() {
+        return "id, brand, model, capacity, isDefrosting, instance, energyEfficiancyClasses, ";
+    }
+
+    public String toCSV() {
+        return brand + ", " + model + ", " + capacity + ", " + isDefrosting + ", " + instance + ", "
+                + energyEfficiancyClasses;
+    }
 }

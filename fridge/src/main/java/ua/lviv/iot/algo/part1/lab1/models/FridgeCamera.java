@@ -28,4 +28,14 @@ public class FridgeCamera extends Fridge {
     public double getMaxUsableCapacity() {
         return this.getCapacity() * this.numberOfEntries;
     }
+
+    public String getHeaders() {
+        return String.format("%s%s%s%s%s%s", super.getHeaders(), "numberOfEntries, ", "typeOfTape, ", "speedOfTape, ",
+                "maxWeight, ", "VOLUME_PER_KILOGRAM");
+    }
+
+    public String toCSV() {
+        return super.toCSV() + ", " + numberOfEntries + ", " + typeOfTape + ", " + speedOfTape + ", " + maxWeight + ", "
+                + VOLUME_PER_KILOGRAM;
+    }
 }

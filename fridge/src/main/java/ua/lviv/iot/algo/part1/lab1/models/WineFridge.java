@@ -7,20 +7,31 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
+
 public class WineFridge extends Fridge {
     private int maxNumbersOfBottle;
     private double maxCapacityOFBottle;
+    private Integer id;
 
-    public WineFridge(final String brand, final String model, final double capacity, final boolean isDefrosing,
-                      final String energyEfficiancyClasses, final int maxNumbersOfBottle,
-                      final double maxCapacityOFBottle) {
-        super(brand, model, capacity, isDefrosing, energyEfficiancyClasses);
+    public WineFridge(String brand, String model, double capacity, boolean isDefrosting
+            , String energyEfficiancyClasses, int maxNumbersOfBottle, double maxCapacityOFBottle, Integer id) {
+        super(brand, model, capacity, isDefrosting, energyEfficiancyClasses);
+        this.id = 0;
         this.maxNumbersOfBottle = maxNumbersOfBottle;
         this.maxCapacityOFBottle = maxCapacityOFBottle;
     }
 
+
     @Override
     public double getMaxUsableCapacity() {
         return this.getCapacity() * this.maxNumbersOfBottle;
+    }
+
+    public String getHeaders() {
+        return String.format("%s%s%s", super.getHeaders(), "maxNumbersOfBottle, ", "maxCapacityOFBottle");
+    }
+
+    public String toCSV() {
+        return super.toCSV() + ", " + maxNumbersOfBottle + ", " + maxCapacityOFBottle;
     }
 }
